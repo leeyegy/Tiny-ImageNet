@@ -6,7 +6,7 @@ import os
 import torch
 from torchvision import datasets
 from torchvision import transforms
-import torchsample.transforms as tstf
+# import torchsample.transforms as tstf
 
 
 def prepare_mnist(args):
@@ -62,10 +62,10 @@ def prepare_imagenet(args):
 
     # Data augmentation (torchsample)
     # torchsample doesn't really help tho...
-    if args.ts:
-        train_trans += [tstf.Gamma(0.7),
-                        tstf.Brightness(0.2),
-                        tstf.Saturation(0.2)]
+    # if args.ts:
+    #     train_trans += [tstf.Gamma(0.7),
+    #                     tstf.Brightness(0.2),
+    #                     tstf.Saturation(0.2)]
 
     train_data = datasets.ImageFolder(train_dir, 
                                     transform=transforms.Compose(train_trans + [norm]))
